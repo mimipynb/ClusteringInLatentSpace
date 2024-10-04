@@ -9,8 +9,12 @@ Queries are encoded using pre-trained language models, and their embeddings are 
 - Anomaly detection by identifying queries or data points that deviate significantly from the clustered embeddings in the latent space (ie: the differences between the distributions of the unseen data against previously seen data can be measured via distance methods within L2 or via KL divergence (although this may be less efficient))
 
 #### Extensions:
-- Fine-tune pre-trained multi-label classifiers like Roberta https://huggingface.co/SamLowe/roberta-base-go_emotions
-- Test whether a Self-organizing map can be constructed from this method.
+Purpose of this experiment is to personalize pre-trained models while avoiding the need to fine-tune the models. Other backlogged tasks for this method:
+- Fine-tune pre-trained multi-label classifiers (eg: https://huggingface.co/SamLowe/roberta-base-go_emotions).
+- Test the feasibility of constructing a Self-Organizing Map (SOM) using this method.
+
+#### Doubts:
+- Based on past experience, training a layer using distance-based loss functions has not yielded promising results as the model learns from more data. Hence, this might need further investigation's on the training params and network's architecture (eg: dimensions). If the previous two approaches prove to be less trivial as I'd hope, I aim to estimate the timeframe during which the embeddings remain applicable, or explore model integration techniques to effectively pool the embeddings together.
 
 #### Used Packages:
 - torch
